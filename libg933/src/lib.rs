@@ -496,6 +496,10 @@ const SUPPORTED_DEVICES: &'static [DeviceMatch] = &[
         name: "G933 Headset",
     },
     DeviceMatch {
+        pid: 0x0a87,
+        name: "G935 Headset",
+    },
+    DeviceMatch {
         pid: 0x0a66,
         name: "G533 Headset",
     },
