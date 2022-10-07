@@ -7,7 +7,7 @@
 
 extern crate byteorder;
 #[macro_use]
-extern crate failure;
+extern crate anyhow;
 #[macro_use]
 extern crate lazy_static;
 #[macro_use]
@@ -23,7 +23,7 @@ pub mod device_info;
 pub mod lights;
 
 use byteorder::{BigEndian, ByteOrder};
-use failure::Error;
+use anyhow::Error;
 use future::Future;
 use std::collections::HashMap;
 use std::fs::{File, OpenOptions};

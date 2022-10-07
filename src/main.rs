@@ -4,7 +4,7 @@
 extern crate clap;
 extern crate env_logger;
 #[macro_use]
-extern crate failure;
+extern crate anyhow;
 #[macro_use]
 extern crate indoc;
 extern crate libg933;
@@ -12,7 +12,7 @@ extern crate libg933;
 extern crate log;
 
 use clap::{App, SubCommand};
-use failure::Error;
+use anyhow::Error;
 
 fn run() -> Result<(), Error> {
     #[cfg_attr(rustfmt, rustfmt_skip)]
@@ -285,15 +285,15 @@ fn main() {
     ::std::process::exit(match run() {
         Ok(()) => 0,
         Err(ref error) => {
-            let mut causes = error.causes();
+            let mut chain = error.chain();
 
             error!(
                 "{}",
-                causes
+                chain
                     .next()
-                    .expect("`causes` should contain at least one error")
+                    .expect("`chain` should contain at least one error")
             );
-            for cause in causes {
+            for cause in chain {
                 error!("Caused by: {}", cause);
             }
 

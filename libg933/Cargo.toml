@@ -5,7 +5,7 @@ authors = ["Ash Levy <ashlea@protonmail.com>"]
 
 [dependencies]
 byteorder = "1.2.1"
-failure = "0.1.1"
+anyhow = "1"
 lazy_static = "1.0.0"
 log = "0.3.9"
 udev = "0.2.0"
